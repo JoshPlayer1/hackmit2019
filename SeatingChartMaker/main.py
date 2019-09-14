@@ -16,12 +16,17 @@ class Window(QtWidgets.QMainWindow):
         self.setGeometry(self.top, self.left, self.width, self.height)
         self.show()
 
+# class draggableRect(
+
 if __name__ == "__main__":
         app = QtWidgets.QApplication([])
-        scene = QtWidgets.QGraphicsScene()
-        scene.addText("Hello World!")
-        scene.addRect(10, 10, 300, 30)
-        # scene.setBackgroundBrush(QtGui.QBrush(QtGui.QColor("black")))
-        view = QtWidgets.QGraphicsView(scene)
+        scene = QtWidgets.QGraphicsScene(0, 0, 600, 500)
+        scene.addRect(0,0,500,500)
+        scene.addRect(510, 0, 100, 500)
+        scene.setBackgroundBrush(QtGui.QBrush(QtGui.QColor("red")))
+        scene.addRect(520, 10, 80, 50, pen=QtGui.QPen(QtGui.QColor("blue")), brush=QtGui.QBrush(QtGui.QColor("blue")))
+        view = QtWidgets.QGraphicsView()
+        view.setGeometry(0, 0, 650, 650)
+        view.setScene(scene)
         view.show()
         sys.exit(app.exec_())
